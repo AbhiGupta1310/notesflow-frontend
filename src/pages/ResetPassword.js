@@ -11,7 +11,7 @@ const ResetPassword = () => {
 
   // Get token from URL query parameter
   const token = new URLSearchParams(location.search).get("token");
-  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:5050/api";
+  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:10000/api";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -8,7 +8,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:5050/api";
+  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:10000/api";
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -25,8 +25,18 @@ const Register = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
+
+      const text = await res.text(); // read raw response
+      let data;
+      try {
+        data = JSON.parse(text); // try parse as JSON
+      } catch {
+        console.error("Expected JSON, got:", text);
+        throw new Error("Server returned invalid response");
+      }
+
       if (!res.ok) throw new Error(data.message || "Registration failed");
+
       localStorage.setItem("notesflow_token", data.token);
       navigate("/notes");
     } catch (err) {

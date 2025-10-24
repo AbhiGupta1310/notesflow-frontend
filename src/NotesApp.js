@@ -15,7 +15,7 @@ const NotesApp = () => {
   );
   const navigate = useNavigate();
 
-  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:5050/api";
+  const apiBase = process.env.REACT_APP_API_URL || "http://localhost:10000/api";
 
   useEffect(() => {
     fetchNotes();
