@@ -13,11 +13,11 @@ Password: !@#RICE123
 
 ### Login Page
 
-![NotesFlow Login](./client/public/notesflow.png)
+![NotesFlow Login](./public/images/notesflow.png)
 
 ### Notes Dashboard
 
-![Notes Dashboard](./client/public/note.png)
+![Notes Dashboard](./public/images/note.png)
 
 ## Features
 
