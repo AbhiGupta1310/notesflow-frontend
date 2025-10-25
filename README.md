@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# NotesFlow - Modern Note-Taking Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NotesFlow is a full-stack note-taking application built with the MERN stack (MongoDB, Express.js, React, Node.js). It features a modern, responsive interface with real-time updates and secure user authentication.
 
-## Available Scripts
+## Demo Account
 
-In the project directory, you can run:
+```
+Email: temp@gmail.com
+Password: !@#RICE123
+```
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Login Page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![NotesFlow Login](./client/public/notesflow.png)
 
-### `npm test`
+### Notes Dashboard
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Notes Dashboard](./client/public/note.png)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 🔐 **Secure Authentication**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - JWT-based authentication
+  - Protected routes and API endpoints
+  - Password encryption using bcrypt
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 📝 **Note Management**
 
-### `npm run eject`
+  - Create, read, update, and delete notes
+  - Rich text formatting
+  - Real-time search functionality
+  - Automatic saving
+  - Character count
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 💫 **Modern UI/UX**
+  - Responsive design
+  - Beautiful gradients and animations
+  - Clean and intuitive interface
+  - Dark mode support (coming soon)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React.js
+- React Router v6
+- Lucide Icons
+- Custom CSS with modern animations
 
-## Learn More
+### Backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Node.js
+- Express.js
+- MongoDB
+- JWT for authentication
+- bcrypt for password hashing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn
 
-### Analyzing the Bundle Size
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone the repository
 
-### Making a Progressive Web App
+```bash
+git clone https://github.com/yourusername/notes-maker.git
+cd notes-maker
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Install server dependencies
 
-### Advanced Configuration
+```bash
+cd server
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. Install client dependencies
 
-### Deployment
+```bash
+cd ../client
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+4. Create environment variables
 
-### `npm run build` fails to minify
+Create a .env file in the server directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+PORT=5050
+MONGO_URI=mongodb://127.0.0.1:27017/notesDB
+JWT_SECRET=your_jwt_secret_here
+```
+
+Create a .env file in the client directory:
+
+```env
+REACT_APP_API_URL=http://localhost:5050/api
+```
+
+5. Start the development server
+
+In the server directory:
+
+```bash
+npm start
+```
+
+In the client directory:
+
+```bash
+npm start
+```
+
+The application will be available at http://localhost:3000
+
+## API Endpoints
+
+### Authentication
+
+- POST `/api/auth/register` - Register a new user
+- POST `/api/auth/login` - Login user
+- POST `/api/auth/forgot-password` - Request password reset
+- POST `/api/auth/reset-password` - Reset password
+- GET `/api/auth/me` - Get current user
+
+### Notes
+
+- GET `/api/notes` - Get all notes for authenticated user
+- POST `/api/notes` - Create a new note
+- PUT `/api/notes/:id` - Update a note
+- DELETE `/api/notes/:id` - Delete a note
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to all contributors who helped with the project
+- Special thanks to the MERN stack community
+- Inspired by modern note-taking applications
+
+## Future Enhancements
+
+- [ ] Dark mode support
+- [ ] Note categories/tags
+- [ ] Collaborative note editing
+- [ ] Rich text editor integration
+- [ ] Export notes in various formats
+- [ ] Mobile applications
+- [ ] Cloud sync
+
+#### Made with ❤️ by Abhi
